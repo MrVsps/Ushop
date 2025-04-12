@@ -1,0 +1,55 @@
+.navbar {
+    width: 100%;
+    height: 70px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: "Nunito Sans", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+  
+  .navbar-left .logo {
+    height: 50px;
+  }
+  
+  .navbar-center .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .navbar-center .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .navbar-center .nav-links li a:hover {
+    color: #dddddd;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .user-name {
+    font-weight: 600;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  

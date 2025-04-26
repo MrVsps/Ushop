@@ -1,55 +1,490 @@
-.navbar {
-    width: 100%;
-    height: 70px;
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Special+Gothic+Expanded+One&display=swap');
+html, body, div, section, article, header, footer, main, nav, ul, li, a, p, h1, h2, h3, h4, h5, h6, span, img, input, button {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* 1. Color principal del logo (dorado) */
+:root {
+    --color-primario: #2c00ee;       /* Dorado principal */
+    --color-secundario: #3a3a3a;     /* Fondo oscuro */
+    --color-texto: #e6e6e6;          /* Texto claro */
+}
+body {
+    font-family: 'Nunito Sans', sans-serif; /* Corregir typo */
     background-color: #000000;
-    color: white;
+    color: #eee;
+    margin: 0;
+    font-size: 16px; /* Tamaño base más adecuado */
+    min-height: 100vh;
+    line-height: 1.6; /* Mejor legibilidad */
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent !important; /* Fondo completamente transparente */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque sutil */
+    z-index: 1000;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.1); /* Línea sutil dorada */
+}
+
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-family: "Nunito Sans", sans-serif;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
-  
-  .navbar-left .logo {
-    height: 50px;
-  }
-  
-  .navbar-center .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-  }
-  
-  .navbar-center .nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-  
-  .navbar-center .nav-links li a:hover {
-    color: #dddddd;
-  }
-  
-  .navbar-right {
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 100%;
+}
+.logo-container { /* Coincide con tu HTML */
     display: flex;
     align-items: center;
-    gap: 15px;
-  }
-  
-  .user-name {
-    font-weight: 600;
-  }
-  
-  .profile-pic {
+}
+nav .Logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease; /* Efecto hover */
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: var(--color-texto) !important; /* Texto claro */
+    font-weight: 400;
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: rgba(255, 204, 0, 0.15); /* Fondo dorado translúcido */
+    border-radius: 30px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+/* Submenú - estructura básica */
+.nav-links li.has-submenu {
+    position: relative;
+}
+
+.nav-links li .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background:  rgba(0, 0, 0, 0.95);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    min-width: 200px;
+    z-index: 999;
+}
+
+.nav-links li .submenu li a {
+    padding: 0.8rem 1.2rem;
+    color: var(--color-texto);
+    display: block;
+    white-space: nowrap;
+}
+
+.nav-links li .submenu li a:hover {
+    background: rgba(255, 204, 0, 0.2);
+}
+
+/* Mostrar submenú en hover */
+.nav-links li.has-submenu:hover .submenu {
+    display: flex;
+}
+@media screen and (max-width: 1048px) {
+    .carrusel .lista .item .content {
+        top: 15vh;
+        width: 95%;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .carrusel .lista .item .content .title{
+        font-size: 30px;
+    }
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: all 0.3s ease;
+        align-items: center;
+        z-index: 999; /* asegúrate que sea el más alto */
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .nav-links li a {
+        display: block;
+        color: #fff;
+        width: 100%;
+    }
+    .nav-links.active {
+        left: 0;
+    }
+    .logo {
+        width: 150px;
+        height: auto;
+    }
+    .menu {
+        display: block;
+        font-size: 26px;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        top: 1.5rem;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .search-bar {
+        display: none;
+    }
+    
+    .nav-links li.has-submenu .submenu {
+
+            display: none;
+            background: transparent;
+            box-shadow: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+    }
+    
+
+    .nav-links li.has-submenu.active .submenu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links li .submenu li a {
+        padding-left: 2rem;
+    }
+
+}
+
+.carrusel {
+    margin-top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+   
+}
+.carrusel .lista .item {
+    position: absolute; 
+    inset :0 0 0 0;
+}
+.carrusel .lista .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); 
+}
+.carrusel .lista .item .content {
+
+        position: absolute;
+        top: 20vh; /* Usa altura relativa */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1140px;
+        padding: 1rem;
+        box-sizing: border-box;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    
+}
+.carrusel .lista .item .content .title {
+    font-size: 3em;
+    font-weight: bold;
+    list-style: 1.3em;
+}
+.carrusel .lista .item .content .description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+.carrusel .lista .item .content .button {    
+    display: grid;
+    grid-template-columns: repeat(2, 130);
+    grid-template-rows: 40px;
+    background: var(--color-primario);
+    color: #fff;
+    gap: 5px;
+    place-items: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+
+}
+/* thumbnail */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display : flex;
+    gap : 20px;
+}
+.thumbnail .item{
+ width: 150px;
+ height: 220px;
+ flex-shrink: 0;
+ position: relative;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #eee;
+    text-shadow: 0 5px 11px rgba(0, 0, 0, 0.7);
+}
+.arrows{
+    position: absolute;
+    top : 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap : 10px;
+}
+.arrows button{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
-  }
-  
+    background-color:  rgba(4, 0, 255, 0.15);
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transform:.5s;
+    z-index: 100;
+}
+.arrows button:hover{
+
+    transform: scale(1.2);
+    background: var(--color-primario);
+}
+
+.carrusel .lista .item:nth-child(1) {
+    z-index: 1;
+}
+.carrusel .lista .item:nth-child(1) .title,
+.carrusel .lista .item:nth-child(1) .description,
+.carrusel .lista .item:nth-child(1) .button {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent {
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+.carrusel .lista .item:nth-child(1) .title{
+    animation-delay: 1.3s;
+}
+.carrusel .lista .item:nth-child(1) .description{
+    animation-delay: 1.5s;
+}
+
+.carrusel .lista .item:nth-child(1) .button{
+    animation-delay: 1.7s;
+}
+
+.carrusel.next .lista .item:nth-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showimage 0.5s linear 1 forwards;
+}
+@keyframes showimage {
+    to{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+.carrusel.next .thumbnail .item:nth-child(1){
+width: 0;
+overflow: hidden;
+animation: showthumbnail .5s linear 1 forwards;
+}
+@keyframes showthumbnail {
+    to{
+        width: 150px;
+    }
+}
+.carrusel.next .thumbnail{
+    transform: translateX(150px);
+    animation: transformthumbnail .5s linear 1 forwards;
+}
+@keyframes transformthumbnail {
+    to{
+        transform: translateX(0);
+    }
+}
+/*preview*/
+.carrusel.prev .lista .item:nth-child(2) {
+    z-index: 2;
+}
+.carrusel.prev .lista .item:nth-child(2) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outimage 0.5s linear 1 forwards;
+}
+@keyframes outimage {
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+.carrusel.prev .thumbnail .item:nth-child(){
+    width: 0;
+    overflow: hidden;
+    animation: outthumbnail 0.5s linear 1 forwards;
+}
+@keyframes outthumbnail {
+    to{
+        width: 150px;
+        height: 220px;
+    }
+}
+.carrusel.prev .lista .item:nth-child(2) .title,
+.carrusel.prev .lista .item:nth-child(2) .description,
+.carrusel.prev .lista .item:nth-child(2) .button {
+    animation: outContent 1.5s linear 1 forwards;
+}
+@keyframes outContent {
+    to{
+        transform: translateY(150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+.carrusel.next .arrows button,
+.carrusel.prev .arrows button{
+    pointer-events: none;
+}
+/*timer*/
+.timer{
+    width: 100%;
+    height: 3px;
+    background-color: #ffcc00;
+    position: absolute;
+    z-index: 100;
+    top : 0;
+    left: 0;
+}
+.carrusel.next .timer,
+.carrusel.prev .timer{
+    width: 100%;
+    animation: timerunning 2s linear 1 forwards;
+
+}
+@keyframes timerunning {
+    to{
+        width: 0;
+    }
+}

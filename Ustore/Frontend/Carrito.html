@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ushop</title>
+  <link rel="stylesheet" href="/Ustore/Frontend/home.css">
+    <link rel="stylesheet" href="/Ustore/Frontend/Carrito.css">
+  <script src="/Ustore/Backend/carrito.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <img src="../Backend/Recursos/imagenes/cropped-AUTONOMA-AUNAR-Logo-azul-2048x576.png" alt="Logo" class="logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Catalogo</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <div class="icon-group">
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar..." />
+          <button type="submit" aria-label="Buscar"><ion-icon name="search-outline"></ion-icon></button>
+        </div>
+
+        <div class="cart-container">
+          <div class="cart" aria-label="Carrito de compras">
+            <ion-icon name="cart-outline"></ion-icon>
+            <span class="cart-count">2</span>
+          </div>
+
+          <div class="cart-dropdown">
+            <div class="cart-item">
+              <img src="../Backend/Recursos/imagenes/buso1ii.jpg" alt="Buso">
+              <div class="item-info">
+                <p>Buso UStore</p>
+                <span>$50.000</span>
+              </div>
+              <a href="producto-buso.html" class="view-button">→</a>
+            </div>
+            <div class="cart-item">
+              <img src="../Backend/Recursos/imagenes/gorra1ii.jpg" alt="Gorra">
+              <div class="item-info">
+                <p>Gorra Oficial</p>
+                <span>$20.000</span>
+              </div>
+              <a href="producto-gorra.html" class="view-button">→</a>
+            </div>
+            <button class="checkout-button">Finalizar compra</button>
+          </div>
+        </div>
+        <div class="profile-container" id="profile_Container">
+          <div class="profile-icon" id="profileIcon">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          </div>
+
+          <div class="profile-dropdown" id="profile_Dropdown">
+            <a href="perfil.html">Ver perfil</a>
+            <a href="configuracion.html">Ver historial</a>
+            <a href="logout.html">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu" id="menu-icon" aria-label="Menú de navegación">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    </nav>
+
+  </header>
+  
+  <section class="carrito-section">
+    <h1>Tu Carrito de Compras</h1>
+    <div class="carrito-container">
+      <div class="carrito-items">
+        
+        <!-- Producto 1 -->
+        <div class="carrito-item">
+            <div class="imagen-container">
+              <img src="../Backend/Recursos/imagenes/buso1ii.jpg" alt="Buso universitario">
+            </div>
+            <div class="info">
+              <h3>Buso universitario</h3>
+              <p>Precio unitario: $50.000</p>
+              <p>Cantidad: 1</p>
+              <p>Total: $50.000</p>
+              <a href="producto-buso.html" class="buy-button">Ver más</a>
+            </div>
+          </div>
+
+        <!-- Producto 2 -->
+        <div class="carrito-item">
+            <div class="imagen-container">          <img src="../Backend/Recursos/imagenes/Posillo1ii.jpg" alt="Pocillo UStore">
+</div>
+          <div class="info">
+            <h3>Pocillo UStore</h3>
+            <p>Precio unitario: $15.000</p>
+            <p>Cantidad: 2</p>
+            <p>Total: $30.000</p>
+            <a href="producto-posillo.html" class="buy-button">Ver más</a>
+          </div>
+          
+        </div>
+
+      </div>
+
+      <div class="carrito-resumen">
+        <h2>Resumen</h2>
+        <p><strong>Subtotal:</strong> $80.000</p>
+        <button class="checkout-btn">Finalizar compra</button>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="contact-section" id="contacto">
+    <h1>Contacto</h1>
+    <p class="intro">¿Tienes preguntas sobre nuestros productos institucionales o el proceso de compra? ¡Estamos para ayudarte!</p>
+  
+    <div class="contact-grid">
+      <!-- Mapa -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.5927069936743!2d-73.59362402583531!3d4.102971995870796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e22f6fd0177%3A0xd97ae197cf0b5b71!2sAUNAR%20-%20Corporaci%C3%B3n%20Universitaria%20Aut%C3%B3noma%20de%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1748089484643!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  
+      <!-- Información de contacto -->
+      <div class="contact-info">
+        <h3>Contáctanos</h3>
+        <p><strong>Dirección:</strong>Vía a Puerto López, km. 2, margen izquierda, Villavicencio, Meta</p>
+        <p><strong>Teléfono:</strong> (608) 6628085</p>
+        <p><strong>Email:</strong> <a href="mailto:info@aunarvillavicencio.edu.co">info@aunarvillavicencio.edu.co</a></p>
+        <p><strong>Horario de atención:</strong><br>
+          Lunes a Viernes: 8:00 am – 12:00 pm / 2:00 pm – 6:00 pm<br>
+          Sábados: 8:00 am – 1:00 pm
+        </p>
+        <div class="social-buttons">
+          <a href="https://wa.me/576086628085" class="btn-social whatsapp" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+          <a href="mailto:info@aunarvillavicencio.edu.co" class="btn-social email"><ion-icon name="mail-outline"></ion-icon></a>
+          <a href="https://www.linkedin.com/school/aunarvillavicencio" class="btn-social linkedin" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

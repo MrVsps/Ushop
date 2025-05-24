@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ushop</title>
   <link rel="stylesheet" href="/Ustore/Frontend/home.css">
+    <link rel="stylesheet" href="/Ustore/Frontend/catalogo.css">
   <script src="/Ustore/Backend/scrip.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -72,97 +73,32 @@
     </nav>
 
   </header>
-
-  <div class="carrusel">
-    <h1>
-      lo mas vendido
-    </h1>
-    <div class="lista">
-      <div class="item" data-index="0">
-        <img src="../Backend/Recursos/imagenes/buso1ii.jpg">
-        <div class="content">
-          <div class="tag-label top">🔥 TOP #1 MÁS VENDIDO</div>
-          <div class="title">Buso universitario</div>
-          <div class="price">Precio: $50.000</div>
-          <div class="description">¡Nuevo diseño 2025! Calidad premium, disponible en todas las tallas.</div>
-          <button class="button">Comprar ahora</button>
+  <section class="productos-section">
+    <div class="productos-header">
+      <h1>Catálogo de Productos</h1>
+      <div class="filtros-barra">
+        <div class="filtro-tags">
+          <label>Filtrar por categoría:</label>
+          <select id="filtroTag">
+            <option value="todos">Todos</option>
+            <option value="ropa">Ropa</option>
+            <option value="útiles">Útiles</option>
+            <option value="tecnología">Tecnología</option>
+            <option value="accesorios">Accesorios</option>
+          </select>
         </div>
-      </div>
-      <div class="item" data-index="1">
-        <img src="../Backend/Recursos/imagenes/gorra1ii.jpg">
-        <div class="content">
-          <div class="tag-label top">🔥 TOP #2 MÁS VENDIDO</div>
-          <div class="title">Gorra oficial</div>
-          <div class="price">Precio: $20.000</div>
-          <div class="description">Protección UV, transpirable y con logo bordado. ¡Promoción limitada!</div>
-          <button class="button">Comprar ahora</button>
-        </div>
-      </div>
-      <div class="item" data-index="2">
-        <img src="../Backend/Recursos/imagenes/Posillo1ii.jpg">
-        <div class="content">
-          <div class="tag-label discount">💸 DESCUENTO</div>
-          <div class="title">Pocillo UStore</div>
-          <div class="price"><s>$18.000</s> $15.000</div>
-          <div class="description">Perfecto para tus mañanas de estudio. Cerámica de alta calidad.</div>
-          <button class="button">Comprar ahora</button>
-        </div>
-      </div>
-      
-      <div class="item" data-index="3">
-        <img src="../Backend/Recursos/imagenes/buso2ii.jpg">
-        <div class="content">
-          <div class="tag-label limited">⏳ EDICIÓN LIMITADA</div>
-          <div class="title">Sudadera edición especial</div>
-          <div class="price">Precio: $70.000</div>
-          <div class="description">Disponible hasta agotar existencias. ¡No te quedes sin la tuya!</div>
-          <button class="button">Comprar ahora</button>
-        </div>
-      </div>
-      
-    </div>
-    <!-- thumbnail -->
-    <div class="thumbnail">
-      <div class="item" data-index="0">
-        <img src="../Backend/Recursos/imagenes/buso1ii.jpg">
-        <div class="content">
-          <div class="title">name slider</div>
-          <div class="description">description</div>
-        </div>
-      </div>
-      <div class="item" data-index="1">
-        <img src="../Backend/Recursos/imagenes/gorra1ii.jpg">
-        <div class="content">
-          <div class="title">name slider</div>
-          <div class="description">description</div>
-        </div>
-      </div>
-      <div class="item" data-index="2">
-        <img src="../Backend/Recursos/imagenes/Posillo1ii.jpg">
-        <div class="content">
-          <div class="title">name slider</div>
-          <div class="description">description</div>
-        </div>
-      </div>
-      <div class="item" data-index="3">
-        <img src="../Backend/Recursos/imagenes/buso2ii.jpg">
-        <div class="content">
-          <div class="title">name slider</div>
-          <div class="description">description</div>
+        <div class="ordenar-por">
+          <label>Ordenar por:</label>
+          <select id="ordenarPrecio">
+            <option value="relevante">Más relevante</option>
+            <option value="menor">Precio: menor a mayor</option>
+            <option value="mayor">Precio: mayor a menor</option>
+          </select>
         </div>
       </div>
     </div>
-    <!-- arrows -->
-    <div class="arrows">
-      <button id="prev"><ion-icon name="chevron-back-outline"></ion-icon></button>
-      <button id="next"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-    </div>
-    <div class="time"></div>
-  </div>
-  <section class="product-section">
-    <h2>Especial para ti</h2>
-    <div class="product-grid">
-
+  
+    <div class="productos-grid" id="productosContenedor">
       <!-- Producto 1 -->
       <div class="product-card">
         <img src="https://www.boomten.com/images/calculadorascientificacompleta_100805624860505.jpg"
@@ -217,16 +153,7 @@
         <p class="price">$65.000</p>
         <a href="producto-maletin.html" class="buy-button">Ver más</a>
       </div>
-
-    </div>
-  </section>
-
-
-  <section class="product-section">
-    <h2>Populares en tu facultad</h2>
-    <div class="product-grid">
-
-      <div class="product-card">
+    <div class="product-card">
         <img src="../Backend/Recursos/imagenes/Posillo1ii.jpg" alt="Pocillo UStore">
         <div class="tag-container">
           <span class="tag">Accesorios</span>
@@ -276,13 +203,6 @@
         <p class="price">$3.000</p>
         <a href="producto-boligrafo.html" class="buy-button">Ver más</a>
       </div>
-
-    </div>
-  </section>
-  <section class="product-section">
-    <h2>Nuevos lanzamientos</h2>
-    <div class="product-grid">
-  
       <!-- Producto 1 -->
       <div class="product-card">
         <img src="https://http2.mlstatic.com/D_NQ_NP_997034-MCO70426518065_072023-O.webp" alt="Audífonos Inalámbricos">
@@ -334,9 +254,9 @@
         <p class="price">$35.000</p>
         <a href="producto-camiseta.html" class="buy-button">Ver más</a>
       </div>
-  
-    </div>
   </section>
+  
+  
   <section class="contact-section" id="contacto">
     <h1>Contacto</h1>
     <p class="intro">¿Tienes preguntas sobre nuestros productos institucionales o el proceso de compra? ¡Estamos para ayudarte!</p>
